@@ -1,6 +1,6 @@
 ////// G-TASK
 
-function getHighestIndex(arr) {
+function getHighestIndex(arr:number[]) {
  // Bo'sh array uchun
     if (arr.length === 0) return -1; 
 
