@@ -1,14 +1,29 @@
-////// G-TASK
+// ////// G-TASK
 
-function getHighestIndex(arr:number[]) {
- // Bo'sh array uchun
-    if (arr.length === 0) return -1; 
+// function getHighestIndex(arr:number[]) {
+//  // Bo'sh array uchun
+//     if (arr.length === 0) return -1; 
 
- // Eng katta qiymatni topamiz
-    const maxValue = Math.max(...arr); 
+//  // Eng katta qiymatni topamiz
+//     const maxValue = Math.max(...arr); 
 
- // Eng katta qiymatning birinchi indexini qaytaramiz
-    return arr.indexOf(maxValue);  
+//  // Eng katta qiymatning birinchi indexini qaytaramiz
+//     return arr.indexOf(maxValue);  
+// }
+
+// console.log(getHighestIndex([5, 21, 12, 21, 8])); 
+
+
+
+
+//////// H-TASK
+
+function getPositive(arr: number[]): string {
+   return arr
+       .filter(num => num > 0) // Musbat qiymatlarni olamiz
+       .map(num => num.toString()) // musbat qiymatni stringga aylantiramiz
+       .join(''); // Stringlarni birlashtiramiz
 }
 
-console.log(getHighestIndex([5, 21, 12, 21, 8])); 
+console.log(getPositive([-1, 99, -3, 8]));
+console.log(getPositive([19, 20, -3,])); 
