@@ -1,11 +1,11 @@
 import express from "express";
-const router = express.Router();
-import memberController from './controllers/member.controller';
+const routerAdmin = express.Router();
+import memberController from './controllers/restaurant.controller';
 
-router.get("/", memberController.goHome);
+// routerAdmin.get("/", memberController.goHome);
 
-router.get("/login",memberController.getLogin);
+// routerAdmin.get("/login",memberController.getLogin);
 
-router.get("/signup",memberController.getSignup);
+// routerAdmin.get("/signup",memberController.getSignup);
 
-export default router;
+export default routerAdmin;
