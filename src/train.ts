@@ -16,14 +16,26 @@
 
 
 
-//////// H-TASK
+// //////// H-TASK
 
-function getPositive(arr: number[]): string {
-   return arr
-       .filter(num => num > 0) // Musbat qiymatlarni olamiz
-       .map(num => num.toString()) // musbat qiymatni stringga aylantiramiz
-       .join(''); // Stringlarni birlashtiramiz
+// function getPositive(arr: number[]): string {
+//    return arr
+//        .filter(num => num > 0) // Musbat qiymatlarni olamiz
+//        .map(num => num.toString()) // musbat qiymatni stringga aylantiramiz
+//        .join(''); // Stringlarni birlashtiramiz
+// }
+
+// console.log(getPositive([-1, 99, -3, 8]));
+// console.log(getPositive([19, 20, -3,])); 
+
+
+
+////////// H2-TASK
+
+function getDigits(input: string): string {
+    // Raqamlarni ajratib olish uchun regex foydalanamiz
+    return input.replace(/\D/g, '');
 }
 
-console.log(getPositive([-1, 99, -3, 8]));
-console.log(getPositive([19, 20, -3,])); 
+console.log(getDigits("2q3w4e5r"));
+
