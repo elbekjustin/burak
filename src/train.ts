@@ -32,10 +32,36 @@
 
 ////////// H2-TASK
 
-function getDigits(input: string): string {
-    // Raqamlarni ajratib olish uchun regex foydalanamiz
-    return input.replace(/\D/g, '');
+// function getDigits(input: string): string {
+//     // Raqamlarni ajratib olish uchun regex foydalanamiz
+//     return input.replace(/\D/g, '');
+// }
+
+// console.log(getDigits("2q3w4e5r"));
+
+
+
+function majorityElement(arr: number[]): number {
+    const countMap: { [key: number]: number } = {}; // Elementlar sonini saqlash uchun obyekt
+
+    // Har bir elementni sanaymiz
+    for (let num of arr) {
+        countMap[num] = (countMap[num] || 0) + 1;
+    }
+
+    let majority: number = arr[0]; // Eng ko'p takrorlangan element
+    let maxCount: number = 0;      // Eng ko'p uchragan son
+
+    // Eng ko'p takrorlangan elementni topamiz
+    for (let num in countMap) {
+        if (countMap[num] > maxCount) {
+            maxCount = countMap[num];
+            majority = Number(num); // num - string turida, uni number ga o‘girlamoqdamiz
+        }
+    }
+
+    return majority;
 }
 
-console.log(getDigits("2q3w4e5r"));
-
+// Misol:
+console.log(majorityElement([1, 2, 3, 7, 5, 7, 3, 7])); // return 4
