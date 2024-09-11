@@ -49,7 +49,7 @@ const memberSchema =  new Schema({
         default: 0,
     },
 },
-{timestamps: true}  // updatedAt, createdAt
+{timestamps: true}  // updatadAt, createdAt
 );
 
 export default  mongoose.model('Member', memberSchema);
