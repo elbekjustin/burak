@@ -19,7 +19,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
         console.log("getLogin");
         res.send("Login Page");
     } catch (err) {
-        console.log("ERROR, goLogin:", err);  
+        console.log("ERROR, getLogin:", err);  
     }
     };
 
