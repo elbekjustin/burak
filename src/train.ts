@@ -41,27 +41,48 @@
 
 
 
-function majorityElement(arr: number[]): number {
-    const countMap: { [key: number]: number } = {}; // Elementlar sonini saqlash uchun obyekt
+// function majorityElement(arr: number[]): number {
+//     const countMap: { [key: number]: number } = {}; // Elementlar sonini saqlash uchun obyekt
 
-    // Har bir elementni sanaymiz
-    for (let num of arr) {
-        countMap[num] = (countMap[num] || 0) + 1;
+//     // Har bir elementni sanaymiz
+//     for (let num of arr) {
+//         countMap[num] = (countMap[num] || 0) + 1;
+//     }
+
+//     let majority: number = arr[0]; // Eng ko'p takrorlangan element
+//     let maxCount: number = 0;      // Eng ko'p uchragan son
+
+//     // Eng ko'p takrorlangan elementni topamiz
+//     for (let num in countMap) {
+//         if (countMap[num] > maxCount) {
+//             maxCount = countMap[num];
+//             majority = Number(num); // num - string turida, uni number ga o‘girlamoqdamiz
+//         }
+//     }
+
+//     return majority;
+// }
+
+// // Misol:
+// console.log(majorityElement([1, 2, 3, 7, 5, 7, 3, 7])); // return 4
+
+
+
+// // J-TASK: 
+
+// Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
+// MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+
+function findLongestWord(str: string): string {
+  
+    let words: string[] = str.split(' ');
+    let longestWord: string = '';
+    for (let word of words) {
+      if (word.length > longestWord.length) {
+        longestWord = word;
+      }
     }
-
-    let majority: number = arr[0]; // Eng ko'p takrorlangan element
-    let maxCount: number = 0;      // Eng ko'p uchragan son
-
-    // Eng ko'p takrorlangan elementni topamiz
-    for (let num in countMap) {
-        if (countMap[num] > maxCount) {
-            maxCount = countMap[num];
-            majority = Number(num); // num - string turida, uni number ga o‘girlamoqdamiz
-        }
-    }
-
-    return majority;
-}
-
-// Misol:
-console.log(majorityElement([1, 2, 3, 7, 5, 7, 3, 7])); // return 4
+   return longestWord;
+  }
+  console.log(findLongestWord("I come from Uzbekistan"));
+  
