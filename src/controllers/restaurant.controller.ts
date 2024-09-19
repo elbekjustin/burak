@@ -3,6 +3,7 @@ import express, { Request, Response } from "express";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/type/member";
 import { MemberType } from "../libs/type/enums/member.enam";
+import { Message } from "../libs/type/Errors";
 
 const memberService = new MemberService();
 const restaurantController: T = {};
@@ -74,6 +75,19 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
     res.send(err);
   }
 };
+
+restaurantController.checkAuthSession = async (req: AdminRequest, res: Response) => {
+    try {
+      console.log("checkAuthSession");
+     if(req.session?.member) 
+    res.send(`<script> alert("${req.session.member.memberNick}") </script>`);
+     else res.send(`<script> alert("${Message.NOT_AUTHENTICATED}") </script>`);
+
+    } catch (err) {
+      console.log("ERROR, checkAuthSession:", err);
+      res.send(err);
+    }
+  };
 
 export default restaurantController;
 
