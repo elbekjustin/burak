@@ -93,19 +93,38 @@
 // Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
 // MASALAN: countVowels("string") return 1;
 
-function countVowels(str: string): number {
-  const vowels: string[] = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
-  let count: number = 0;
+// function countVowels(str: string): number {
+//   const vowels: string[] = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+//   let count: number = 0;
 
-  for (let i of str) {
-    if (vowels.includes(i)) {
-      count++;
-    }
-  }
-  return count;
+//   for (let i of str) {
+//     if (vowels.includes(i)) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(countVowels("Hello MIT"));
+
+
+
+
+
+// L-TASK: 
+
+// Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+// MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
+
+
+function reverseSentence(sentence: string): string {
+  const words = sentence.split(" ");
+  const reversedWords = words.map(word => word.split("").reverse().join(""));
+  return reversedWords.join(" ");
 }
 
-console.log(countVowels("Hello MIT"));
+console.log(reverseSentence("we like coding!"));
+
 
 
   
