@@ -3,7 +3,7 @@ import express, { NextFunction, Request, Response } from "express";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/type/member";
 import { MemberType } from "../libs/type/enums/member.enam";
-import Errors, { Message } from "../libs/type/Errors";
+import Errors, { HttpCode, Message } from "../libs/type/Errors";
 
 const memberService = new MemberService();
 const restaurantController: T = {};
@@ -43,15 +43,19 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
   try {
     console.log("processSignup");
-
+    const file = req.file;
+    if (!file)
+      throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
+  
     const newMember: MemberInput = req.body;
+    newMember.memberImage = file?.path;
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember);
         // TODO: SESSIONS AUTHENTICATION
 
         req.session.member = result;
         req.session.save(function () {
-            res.send(result);
+        res.redirect("/admin/product/all");
         });
 
   } catch (err) {
@@ -74,7 +78,8 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
 
         req.session.member = result;
         req.session.save(function () {
-            res.send(result);
+          res.redirect("/admin/product/all");
+
         });
 
   } catch (err) {
