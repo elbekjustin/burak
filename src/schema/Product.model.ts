@@ -10,7 +10,7 @@ productStatus: {
     default: ProductStatus.PAUSE,
 },
 
-productColection: {
+productCollection: {
     type: String,
     enum: ProductCollection,
     required: true,
@@ -38,14 +38,13 @@ productSize: {
 },
 
 productVolume: {
-    type: String,
+    type: Number,
     enum: ProductVolume,
     default: ProductVolume.ONE,
 },
 
 productDesc: {
     type: String,
-    required: true,
 },
 
 productImages: {
