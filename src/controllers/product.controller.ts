@@ -5,7 +5,7 @@ import ProductService from "../models/Product.service";
 import { AdminRequest } from "../libs/type/member";
 import { ProductInput } from "../libs/type/product";
 
-const productServiceService = new ProductService();
+const productService = new ProductService();
 const productController: T = {};
 
 /** SPA */
@@ -35,7 +35,7 @@ productController.getAllProducts = async (req:Request, res: Response) => {
             return ele.path;
         });
 
-        await ProductService.createNewProduct(date);
+        await productService.createNewProduct(date);
 
         console.log("date:", date);
         
@@ -56,7 +56,11 @@ productController.getAllProducts = async (req:Request, res: Response) => {
         productController.updateChosenProduct = async (req: Request, res: Response) => {
             try{
             console.log("updateChosenProduct");
-             
+             const id = req.params.id;
+          
+             const result = await productService.updateChosenProduct(id, req.body);
+
+             res.status(HttpCode.OK).json({ date: result });
             } catch (err) {
                 console.log("ERROR, updateChosenProduct:", err);  
                 if(err instanceof Errors) res.status(err.code).json(err);

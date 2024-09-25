@@ -20,7 +20,7 @@ export interface Product {
 
 export interface ProductInput {
     productStatus?: ProductStatus;
-    productColection?: ProductCollection;
+    productColection: ProductCollection;
     productName: string;
     productPrice: number;
     productLeftCount: number;
@@ -28,5 +28,19 @@ export interface ProductInput {
     productVolume?: ProductVolume;
     productDesc?: string;
     productImages?: string[];
-    productViews: number;
+    productViews?: number;
+}
+
+export interface ProductUpdateInput {
+    _id: Object;
+    productStatus?: ProductStatus;
+    productColection?: ProductCollection;
+    productName?: string;
+    productPrice?: number;
+    productLeftCount?: number;
+    productSize?: ProductSize;
+    productVolume?: ProductVolume;
+    productDesc?: string;
+    productImages?: string[];
+    productViews?: number;
 }
