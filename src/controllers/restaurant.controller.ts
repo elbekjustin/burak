@@ -118,11 +118,16 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
     }
   };
 
-  restaurantController.updateChosenUser = (req: Request, res: Response) => {
+  restaurantController.updateChosenUser = async (req: Request, res: Response) => {
     try {
       console.log("updateChosenUser");
+      const result = await memberService.updateChosenUser(req.body);
+
+      res.status(HttpCode.OK).json({ date: result});
     } catch (err) {
       console.log("ERROR, updateChosenUser:", err);
+      if(err instanceof Errors) res.status(err.code).json(err);
+      else res.status(Errors.standart.code).json(Errors.standart);
     }
   };
 
