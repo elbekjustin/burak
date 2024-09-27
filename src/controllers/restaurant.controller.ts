@@ -18,11 +18,12 @@ restaurantController.goHome = (req: Request, res: Response) => {
   }
 };
 
+
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
     res.render("signup");
-    res.send("Signup Page");
+    return; 
   } catch (err) {
     console.log("ERROR, goSignup:", err);
     res.redirect("/admin");
@@ -33,12 +34,13 @@ restaurantController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
     res.render("login");
-    res.send("Login Page");
+    return;
   } catch (err) {
     console.log("ERROR, getLogin:", err);
     res.redirect("/admin");
   }
 };
+
 
 restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
   try {
