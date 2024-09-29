@@ -155,15 +155,36 @@
 // MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
 
 
-function palindromCheck(str: string): boolean {
+// function palindromCheck(str: string): boolean {
 
-  const reversed: string = str.split('').reverse().join('');
-  return str === reversed;
+//   const reversed: string = str.split('').reverse().join('');
+//   return str === reversed;
+// }
+
+// console.log(palindromCheck("mom"));
+
+
+
+
+
+// O-TASK:
+
+// Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
+// MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+
+function calculateSumOfNumbers(arr: any[]): number {
+  let sum: number = 0;
+
+  arr.forEach(item => {
+    if (typeof item === 'number') {
+      sum += item;
+    }
+  });
+
+  return sum;
 }
 
-console.log(palindromCheck("mom"));
-
-
+console.log(calculateSumOfNumbers([10, "10", {son: 10}, true, 10])); 
 
 
 
