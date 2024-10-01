@@ -16,7 +16,7 @@ productController.getAllProducts = async (req:Request, res: Response) => {
     try{
     console.log("getAllProducts");
     const date = await productService.getAllProducts();
-
+    console.log("products", date);
     res.render("products", { products: date});
   
     } catch (err) {
