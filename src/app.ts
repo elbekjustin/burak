@@ -44,8 +44,8 @@ app.use(function(req, res, next) {
 });
 
 /**  3-VIEWS  */
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+app.set('views', path.join(__dirname,'views'));
+app.set('view engine', 'ejs');
 
 /**  4-ROUTERS  **/
 app.use("/", router);       // REACT

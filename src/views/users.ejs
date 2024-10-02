@@ -4,7 +4,7 @@
 
 <body>
   <div class="users-container">
-    <% if(!member) { %>
+    <% if (!member) { %>
     <div class="navigation-menu">
       <ul class="nav justify-content-center">
         <li class="nav-item" style="cursor: pointer">
@@ -48,9 +48,9 @@
     <div class="users-frame">
       <div class="board">
         <div class="user-table">
-          <span class="header-name" style="margin-bottom: 30px"
-            >All Users List</span
-          >
+          <span class="header-name" style="margin-bottom: 30px">
+            All Users List
+          </span>
           <table class="table table-hover table-sm">
             <thead class="thead-light">
               <tr class="thead-light">
@@ -60,20 +60,29 @@
                 <th scope="col">Status</th>
               </tr>
             </thead>
-            <!--  LOOP PRODUCTS: START  -->
-            <tbody style="background: white">
-              <td>1</td>
-              <td>David</td>
-              <td>821024697878</td>
-              <td style="width: 13%">
-                <select class="spec-select member-status">
-                  <option value="ACTIVE" selected>ACTIVE</option>
-                  <option value="BLOCK">BLOCK</option>
-                  <option value="DELETE">DELETE</option>
-                </select>
-              </td>
-            </tbody>
-            <!--  LOOP PRODUCTS: END  -->
+            <!-- LOOP PRODUCTS: START -->
+            <% users.map(function(value, index) { %> <!-- Corrected syntax here -->
+              <tbody style="background: white">
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= value.memberNick %></td>
+                  <td><%= value.memberPhone %></td>
+                  <td style="width: 13%">
+                    <select class="spec-select member-status">
+                      <option value="ACTIVE" <%= value.memberStatus === 'ACTIVE' ? 'selected' : '' %> >
+                        ACTIVE
+                      </option>
+                      <option value="BLOCK" <%= value.memberStatus === 'BLOCK' ? 'selected' : '' %> >
+                        BLOCK
+                      </option>
+                      <option value="DELETE" <%= value.memberStatus === 'DELETE' ? 'selected' : '' %> >
+                        DELETE
+                      </option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            <% }) %> <!-- LOOP PRODUCTS: END -->
           </table>
         </div>
       </div>
@@ -85,3 +94,4 @@
 </body>
 
 <%- include('includes/footer') %>
+
