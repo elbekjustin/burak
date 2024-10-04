@@ -172,20 +172,49 @@
 // Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
 // MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
 
-function calculateSumOfNumbers(arr: any[]): number {
-  let sum: number = 0;
+// function calculateSumOfNumbers(arr: any[]): number {
+//   let sum: number = 0;
 
-  arr.forEach(item => {
-    if (typeof item === 'number') {
-      sum += item;
-    }
-  });
+//   arr.forEach(item => {
+//     if (typeof item === 'number') {
+//       sum += item;
+//     }
+//   });
 
-  return sum;
-}
+//   return sum;
+// }
 
-console.log(calculateSumOfNumbers([10, "10", {son: 10}, true, 10])); 
+// console.log(calculateSumOfNumbers([10, "10", {son: 10}, true, 10])); 
 
 
+
+
+
+
+
+
+// P-TASK:
+
+// Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
+// MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+// function objectToArray(obj: any) {
+//   return Object.entries(obj);
+// }
+
+// console.log(objectToArray({ a: 10, b: 20 }));
 
   
+
+
+// Q-TASK:
+
+// Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+// MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
+
+function hasProperty(obj: object, key: string): boolean {
+  return key in obj;
+}
+
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); 
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); 

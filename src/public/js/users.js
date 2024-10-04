@@ -20,7 +20,6 @@ $(function () {
                 console.log("result:", result);
 
                 if (result.data) {
-                    console.log("User updated!");
                     $(".member-status").blur();
                 } else {
                     alert("User update failed!");
