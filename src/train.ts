@@ -212,9 +212,37 @@
 // Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
 // MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
 
-function hasProperty(obj: object, key: string): boolean {
-  return key in obj;
-}
+// function hasProperty(obj: object, key: string): boolean {
+//   return key in obj;
+// }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); 
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); 
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); 
+
+
+
+
+
+// R-TASK:
+
+// Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
+// MASALAN: calculate("1+3") return 4;
+
+function calculate(a:string): number {
+  const raqamlar = a.split("+").map(Number);
+  return raqamlar.reduce((b, c) => b + c, 0);
+} ;
+
+console.log(calculate("1+2+3+4+5"));
+
+
+
+
+
+
+
+
+
+
+
+
