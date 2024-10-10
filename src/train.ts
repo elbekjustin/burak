@@ -242,18 +242,32 @@
 // Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
 // MASALAN: missingNumber([3, 0, 1]) return 2
 
-function missingNumber(nums: number[]): number {
-  const n = nums.length;
+// function missingNumber(nums: number[]): number {
+//   const n = nums.length;
 
-  const expectedSum = (n * (n + 1)) / 2;
+//   const expectedSum = (n * (n + 1)) / 2;
 
-  const actualSum = nums.reduce((acc, num) => acc + num, 0);
+//   const actualSum = nums.reduce((acc, num) => acc + num, 0);
 
-  return expectedSum - actualSum;
+//   return expectedSum - actualSum;
+// }
+
+// console.log(missingNumber([0, 1, 2, 3, 5]));
+
+
+
+
+// T-TASK:
+
+// Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
+// MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  return [...arr1, ...arr2].sort((a, b) => a - b);
 }
 
-console.log(missingNumber([0, 1, 2, 3, 5]));
-
+const result: number[] = mergeSortedArrays([111, 99, 5, -22], [5, 9, 90, -20]);
+console.log(result); 
 
 
 
