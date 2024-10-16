@@ -279,20 +279,45 @@
 
 
 
-function sumOdds(number: number): number {
-  let count: number = 0;
+// function sumOdds(number: number): number {
+//   let count: number = 0;
 
-  for (let i = 1; i < number; i++) {
-    if (i % 2 !== 0) { // 2 ga bo‘linmasa
-      count++; 
+//   for (let i = 1; i < number; i++) {
+//     if (i % 2 !== 0) { // 2 ga bo‘linmasa
+//       count++; 
+//     }
+//   }
+
+//   return count;
+// }
+
+// console.log(sumOdds(3));
+
+
+
+
+
+// V-TASK:
+
+// Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+
+function countChars(str: string): { [key: string]: number } {
+  const result: { [key: string]: number } = {};
+  
+  for (let char of str) {
+    if (result[char]) {
+      result[char]++;
+    } else {
+      result[char] = 1;
     }
   }
-
-  return count;
+  
+  return result;
 }
 
-console.log(sumOdds(3));
-
+console.log(countChars("assdddffff"));
 
 
 
