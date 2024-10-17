@@ -3,8 +3,11 @@ import {T} from "../libs/type/common";
 import express, {Request, Response} from "express";
 import MemberService from "../models/Member.service";
 import Errors from "../libs/type/Errors";
+import AuthService from "../models/Auth.service";
 
 const memberService = new MemberService();
+const authService = new AuthService();
+
 
 // REACT
 const memberController: T = {};
@@ -14,7 +17,9 @@ const memberController: T = {};
         console.log("signup");
         const input: MemberInput = req.body,
         result: Member = await memberService.signup(input);
-        // TODO: TOKENS AUTHENTICATION
+        const token = await authService.createToken(result);
+        console.log("token:", token);
+
 
         res.json({member:result});
         } catch (err) {
@@ -28,8 +33,9 @@ const memberController: T = {};
             try{
             console.log("login");
             const input: LoginInput = req.body,
-            result = await memberService.login(input);
-        // TODO: TOKENS AUTHENTICATION
+            result = await memberService.login(input),
+            token = await authService.createToken(result);
+            console.log("token:", token);
 
             res.json({member:result});
             } catch (err) {
