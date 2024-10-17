@@ -3,6 +3,7 @@ import path from 'path';
 import routerAdmin from "./router-admin"
 import router from "./router"
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 import { MORGAN_FORMAT } from './libs/type/config';
 
  import session from "express-session";
@@ -21,6 +22,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
 
 /**  2-SESSIONS  **/
