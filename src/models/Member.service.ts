@@ -12,6 +12,20 @@ private readonly memberModel;
 this.memberModel = MemberModel;
     }
 
+    public async updateMember(
+      member: Member,
+      input: MemberUpdateInput
+    ): Promise<Member> {
+      const memberId = shapeIntoMongooseObjectId(member._id);
+      const result = await this.memberModel
+        .findOneAndUpdate({ _id: memberId }, input, { new: true })
+        .exec();
+      if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+    
+      return result;
+    }
+    
+
     /**SPA */
 
     public async signup(input: MemberInput): Promise<Member> {

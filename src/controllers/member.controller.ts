@@ -1,4 +1,4 @@
-import { ExtendedRequest, LoginInput, Member, MemberInput } from "../libs/type/member";
+import { ExtendedRequest, LoginInput, Member, MemberInput, MemberUpdateInput } from "../libs/type/member";
 import { T } from "../libs/type/common";
 import express, { NextFunction, Request, Response } from "express";
 import MemberService from "../models/Member.service";
@@ -75,8 +75,23 @@ memberController.logout = (req: ExtendedRequest, res: Response) => {
       else res.status(Errors.standard.code).json(Errors.standard);
     }
   };
-  
 
+  memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
+    try {
+      console.log("updateMember");
+      const input: MemberUpdateInput = req.body;
+      if (req.file) input.memberImage = req.file.path.replace(/\\/, "/");
+  
+      const result = await memberService.updateMember(req.member, input);
+      res.status(HttpCode.OK).json(result);
+    } catch (err) {
+      console.log("Error, updateMember:", err);
+      if (err instanceof Errors) res.status(err.code).json(err);
+      else res.status(Errors.standard.code).json(Errors.standard);
+    }
+  };
+  
+  
 memberController.verifyAuth = async (req: ExtendedRequest, res: Response, next: NextFunction) => {
     try {
       const token = req.cookies["accessToken"];
@@ -108,29 +123,4 @@ memberController.verifyAuth = async (req: ExtendedRequest, res: Response, next: 
 
 export default memberController;
 
-
-
-// memberController.goHome = (req: Request, res: Response) => {
-// try{
-//     res.send("Home Page");
-// } catch (err) {
-//     console.log("ERROR, goHome:", err);  
-// }
-// };
-
-// memberController.getLogin = (req: Request, res: Response) => {
-//     try{
-//         res.send("Login Page");
-//     } catch (err) {
-//         console.log("ERROR, goLogin:", err);  
-//     }
-//     };
-
-//     memberController.getSignup = (req: Request, res: Response) => {
-//         try{
-//             res.send("Signup Page");
-//         } catch (err) {
-//             console.log("ERROR, goSignup:", err);  
-//         }
-//         };
 
