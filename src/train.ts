@@ -326,15 +326,61 @@
 // Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
 // MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
 
-function chunkArray(arr: any[], size: number): any[][] {
-  const result: any[][] = [];
-  for (let i = 0; i < arr.length; i += size) {
-    result.push(arr.slice(i, i + size));
+// function chunkArray(arr: any[], size: number): any[][] {
+//   const result: any[][] = [];
+//   for (let i = 0; i < arr.length; i += size) {
+//     result.push(arr.slice(i, i + size));
+//   }
+//   return result;
+// }
+
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 9));
+
+
+
+
+
+// TASK X
+
+// Shunday function yozing, uni object va string parametrlari bo'lsin.
+// Bu function, birinchi object parametri tarkibida, kalit sifatida ikkinchi string parametri
+// necha marotaba takrorlanganlini sanab qaytarsin.
+
+// Eslatma => Nested object'lar ham sanalsin
+
+// MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+// Yuqoridagi misolda, birinchi argument object, ikkinchi argument 'model'.
+// Funktsiya, shu ikkinchi argument 'model', birinchi argument object
+// tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqda
+
+
+function countOccurrences(obj: any, key: string): number {
+  let count = 0;
+
+  for (let k in obj) {
+    if (k === key) {
+      count++;
+    }
+
+    if (typeof obj[k] === 'object' && obj[k] !== null) {
+      count += countOccurrences(obj[k], key);
+    }
   }
-  return result;
+
+  return count;
 }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 9));
+const obj1 = {
+  model: 'Tesla',
+  year: 2020,
+  owner: {
+    model: 'Bugatti',
+    color: 'blue'
+  }
+};
+
+console.log(countOccurrences(obj1, 'model')); // Natija: 2
 
 
 
