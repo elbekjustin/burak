@@ -1,4 +1,9 @@
-import { Product, ProductInput, productInquiry, ProductUpdateInput } from "../libs/type/product";
+import { 
+  Product, 
+  ProductInput, 
+  productInquiry, 
+  ProductUpdateInput
+ } from "../libs/type/product";
 import ProductModel from "../schema/Product.model";
 import { HttpCode } from "../libs/type/Errors";
 import { Message } from "../libs/type/Errors";
@@ -46,6 +51,26 @@ public async getProducts(inquiry: productInquiry): Promise<Product[]> {
 
   return result;
 }
+
+public async getProduct(
+  memberId: Object | null,
+  id: string
+): Promise<Product> {
+  const productId = shapeIntoMongooseObjectId(id);
+
+  let result = await this.productModel
+    .findOne({
+      _id: productId,
+      productStatus: ProductStatus.PROCESS,
+    })
+    .exec();
+
+  if (!result)
+    throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+  return result;
+}
+
 
 
 /** SSR */
