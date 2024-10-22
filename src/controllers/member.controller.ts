@@ -2,9 +2,9 @@ import { ExtendedRequest, LoginInput, Member, MemberInput, MemberUpdateInput } f
 import { T } from "../libs/type/common";
 import express, { NextFunction, Request, Response } from "express";
 import MemberService from "../models/Member.service";
-import Errors, { HttpCode, Message } from "../libs/type/Errors";
+import Errors, { HttpCode, Message } from "../libs/utils/Errors";
 import AuthService from "../models/Auth.service";
-import { AUTH_TIMER } from "../libs/type/config";
+import { AUTH_TIMER } from "../libs/utils/config";
 
 const memberService = new MemberService();
 const authService = new AuthService();

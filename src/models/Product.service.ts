@@ -5,11 +5,11 @@ import {
   ProductUpdateInput
  } from "../libs/type/product";
 import ProductModel from "../schema/Product.model";
-import { HttpCode } from "../libs/type/Errors";
-import { Message } from "../libs/type/Errors";
-import Errors from "../libs/type/Errors";
-import { shapeIntoMongooseObjectId } from "../libs/type/config";
-import { ProductStatus } from "../libs/type/enums/product.enum";
+import { HttpCode } from "../libs/utils/Errors";
+import { Message } from "../libs/utils/Errors";
+import Errors from "../libs/utils/Errors";
+import { shapeIntoMongooseObjectId } from "../libs/utils/config";
+import { ProductStatus } from "../libs/enums/product.enum";
 import { T } from "../libs/type/common";
 
 

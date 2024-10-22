@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 import memberController from './controllers/member.controller';
-import uploader from "./libs/utils/uploader";
+import uploader from "./libs/type/uploader";
 import productController from "./controllers/product.controller";
 
 /* Mmber */

@@ -1,10 +1,10 @@
 import express, {Request, Response} from "express";
-import Errors, { HttpCode, Message } from "../libs/type/Errors";
+import Errors, { HttpCode, Message } from "../libs/utils/Errors";
 import { T } from "../libs/type/common";
 import ProductService from "../models/Product.service";
 import { AdminRequest, ExtendedRequest } from "../libs/type/member";
 import { ProductInput, productInquiry } from "../libs/type/product";
-import { ProductCollection } from "../libs/type/enums/product.enum";
+import { ProductCollection } from "../libs/enums/product.enum";
 
 const productService = new ProductService();
 const productController: T = {};

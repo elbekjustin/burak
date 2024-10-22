@@ -2,8 +2,8 @@ import { T } from "../libs/type/common";
 import express, { NextFunction, Request, Response } from "express";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/type/member";
-import { MemberType } from "../libs/type/enums/member.enam";
-import Errors, { HttpCode, Message } from "../libs/type/Errors";
+import { MemberType } from "../libs/enums/member.enam";
+import Errors, { HttpCode, Message } from "../libs/utils/Errors";
 
 const memberService = new MemberService();
 const restaurantController: T = {};

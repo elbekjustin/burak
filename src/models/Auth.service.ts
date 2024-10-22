@@ -1,8 +1,8 @@
 import { defaultFormat } from "moment";
 import { Member } from "../libs/type/member";
 import  jwt from "jsonwebtoken";
-import { AUTH_TIMER } from "../libs/type/config";
-import Errors, { HttpCode, Message } from "../libs/type/Errors";
+import { AUTH_TIMER } from "../libs/utils/config";
+import Errors, { HttpCode, Message } from "../libs/utils/Errors";
 import { PublicKeyInput, JsonWebKeyInput } from "crypto";
 
 class AuthService {

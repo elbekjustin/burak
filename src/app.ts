@@ -4,7 +4,7 @@ import routerAdmin from "./router-admin"
 import router from "./router"
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
-import { MORGAN_FORMAT } from './libs/type/config';
+import { MORGAN_FORMAT } from './libs/utils/config';
 
  import session from "express-session";
  import ConnectMongoDB from "connect-mongodb-session";
