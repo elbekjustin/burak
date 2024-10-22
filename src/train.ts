@@ -355,32 +355,55 @@
 // tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqda
 
 
-function countOccurrences(obj: any, key: string): number {
-  let count = 0;
+// function countOccurrences(obj: any, key: string): number {
+//   let count = 0;
 
-  for (let k in obj) {
-    if (k === key) {
-      count++;
-    }
+//   for (let k in obj) {
+//     if (k === key) {
+//       count++;
+//     }
 
-    if (typeof obj[k] === 'object' && obj[k] !== null) {
-      count += countOccurrences(obj[k], key);
-    }
-  }
+//     if (typeof obj[k] === 'object' && obj[k] !== null) {
+//       count += countOccurrences(obj[k], key);
+//     }
+//   }
 
-  return count;
+//   return count;
+// }
+
+// const obj1 = {
+//   model: 'Tesla',
+//   year: 2020,
+//   owner: {
+//     model: 'Bugatti',
+//     color: 'blue'
+//   }
+// };
+
+// console.log(countOccurrences(obj1, 'model')); 
+
+
+
+
+
+// Y-TASK:
+
+// Shunday function yozing, uni 2 ta array parapetri bolsin. Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin
+// MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+  const set1 = new Set(arr1);
+  
+  const intersection = arr2.filter(item => set1.has(item));
+  
+  return intersection;
 }
 
-const obj1 = {
-  model: 'Tesla',
-  year: 2020,
-  owner: {
-    model: 'Bugatti',
-    color: 'blue'
-  }
-};
+console.log(findIntersection([2, 4, 6, ],[5, 6, 7,]));
 
-console.log(countOccurrences(obj1, 'model')); // Natija: 2
+
+
 
 
 
